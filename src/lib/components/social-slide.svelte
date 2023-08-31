@@ -21,19 +21,8 @@
 	}
 	function showOthers() {
 		document.getElementById('show-others')?.classList.toggle('mt-2');
-		const showButtons = document.getElementById('show-buttons');
-		const hideButtons = document.getElementById('hide-buttons');
-		if (showButtons?.classList.contains('hidden')) {
-			showButtons?.classList.add('flex');
-			showButtons?.classList.remove('hidden');
-			hideButtons?.classList.add('hidden');
-			hideButtons?.classList.remove('flex');
-		} else if (showButtons?.classList.contains('flex')) {
-			showButtons?.classList.add('hidden');
-			showButtons?.classList.remove('flex');
-			hideButtons?.classList.add('flex');
-			hideButtons?.classList.remove('hidden');
-		}
+		document.getElementById('show-buttons')?.classList.toggle('show');
+		document.getElementById('hide-buttons')?.classList.toggle('show');
 	}
 </script>
 
@@ -48,7 +37,7 @@
 			<button on:click={callWAApi}>Deel via WhatsApp</button>
 		</div>
 		<button
-			class="slide-more p-2 flex items-center h-fit bg-gray-400 rounded-full hover:cursor-pointer"
+			class="slide-more show p-2 items-center h-fit bg-gray-400 rounded-full hover:cursor-pointer"
 			on:click={showOthers}
 			id="show-buttons"
 		>
@@ -66,7 +55,7 @@
 			</svg>
 		</button>
 		<button
-			class="slide-more p-2 hidden items-center h-fit bg-gray-400 rounded-full hover:cursor-pointer"
+			class="slide-more p-2 items-center h-fit bg-gray-400 rounded-full hover:cursor-pointer"
 			on:click={showOthers}
 			id="hide-buttons"
 		>
@@ -118,3 +107,12 @@
 		</button>
 	</div>
 </div>
+
+<style>
+	.slide-more {
+		display: none;
+	}
+	.slide-more.show {
+		display: flex;
+	}
+</style>
