@@ -19,11 +19,26 @@
 	function copyLink() {
 		navigator.clipboard.writeText(link);
 	}
-	function showOthers() {}
+	function showOthers() {
+		document.getElementById('show-others')?.classList.toggle('mt-2');
+		const showButtons = document.getElementById('show-buttons');
+		const hideButtons = document.getElementById('hide-buttons');
+		if (showButtons?.classList.contains('hidden')) {
+			showButtons?.classList.add('flex');
+			showButtons?.classList.remove('hidden');
+			hideButtons?.classList.add('hidden');
+			hideButtons?.classList.remove('flex');
+		} else if (showButtons?.classList.contains('flex')) {
+			showButtons?.classList.add('hidden');
+			showButtons?.classList.remove('flex');
+			hideButtons?.classList.add('flex');
+			hideButtons?.classList.remove('hidden');
+		}
+	}
 </script>
 
 <div class="social-slide">
-	<div class="slide-container flex justify-center items-center gap-2.5">
+	<div class="slide-container relative flex justify-center items-center gap-2.5 z-10">
 		<div class="slide-button flex justify-center gap-2.5 p-5 bg-green-wa rounded-full text-white">
 			<img
 				alt="WhatsApp logo"
@@ -35,6 +50,7 @@
 		<button
 			class="slide-more p-2 flex items-center h-fit bg-gray-400 rounded-full hover:cursor-pointer"
 			on:click={showOthers}
+			id="show-buttons"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -49,8 +65,29 @@
 				/>
 			</svg>
 		</button>
+		<button
+			class="slide-more p-2 hidden items-center h-fit bg-gray-400 rounded-full hover:cursor-pointer"
+			on:click={showOthers}
+			id="hide-buttons"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="20"
+				height="20"
+				fill="#000000"
+				viewBox="0 0 256 256"
+			>
+				<rect width="256" height="256" fill="none" />
+				<path
+					d="M139.3,128l66.4-66.3a8.1,8.1,0,0,0-11.4-11.4L128,116.7,61.7,50.3A8.1,8.1,0,0,0,50.3,61.7L116.7,128,50.3,194.3a8.1,8.1,0,0,0,0,11.4,8.2,8.2,0,0,0,11.4,0L128,139.3l66.3,66.4a8.2,8.2,0,0,0,11.4,0,8.1,8.1,0,0,0,0-11.4Z"
+				/>
+			</svg>
+		</button>
 	</div>
-	<div class="show-others flex justify-center my-2 gap-2 mr-9">
+	<div
+		class="show-others relative flex justify-center gap-2 mb-2 mr-11 -mt-10 z-0 transition-all ease-in-out duration-1000"
+		id="show-others"
+	>
 		<button class="fb-share" on:click={callFBApi}>
 			<img
 				class="h-auto w-10"
