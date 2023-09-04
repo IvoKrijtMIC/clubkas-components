@@ -2,20 +2,6 @@
 	export let text: string;
 	export let link: string;
 	export let title: string;
-	function callWAApi() {
-		window.location.assign('https://api.whatsapp.com/send?text=' + text);
-	}
-	function callFBApi() {
-		window.location.assign('https://www.facebook.com/sharer/sharer.php?u=' + link);
-	}
-	function callLIApi() {
-		window.location.assign(
-			'https://www.linkedin.com/shareArticle?mini=true&url=' + link + '&title=' + title
-		);
-	}
-	function callEmailApi() {
-		window.location.assign('mailto:?subject=' + title + '&body=' + text + ' ' + link);
-	}
 	function copyLink() {
 		navigator.clipboard.writeText(link);
 	}
@@ -27,15 +13,15 @@
 </script>
 
 <div class="social-slide">
-	<div class="slide-container relative flex justify-center items-center gap-2.5 z-10">
-		<div class="slide-button flex justify-center gap-2.5 p-5 bg-green-wa rounded-full text-white">
+	<div class="slide-container relative flex justify-center items-center gap-2.5 z-10 bg-gray-100">
+		<a class="slide-button flex justify-center gap-2.5 p-5 bg-green-wa rounded-full text-white" href={"https://api.whatsapp.com/send?text=" + text}>
 			<img
 				alt="WhatsApp logo"
 				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/KWF/Nederland+geeft+licht/Middel+1%404x.png"
 				class="w-7"
 			/>
-			<button on:click={callWAApi}>Deel via WhatsApp</button>
-		</div>
+			<span>Deel via WhatsApp</span>
+		</a>
 		<button
 			class="slide-more show p-2 items-center h-fit bg-gray-400 rounded-full hover:cursor-pointer"
 			on:click={showOthers}
@@ -77,34 +63,48 @@
 		class="show-others relative flex justify-center gap-2 mb-2 mr-11 -mt-10 z-0 transition-all ease-in-out duration-1000"
 		id="show-others"
 	>
-		<button class="fb-share" on:click={callFBApi}>
-			<img
-				class="h-auto w-10"
-				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/Facebook+share.png"
-				alt="Via Facebook delen"
-			/>
-		</button>
-		<button class="li-share" on:click={callLIApi}>
-			<img
-				class="h-auto w-10"
-				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/LinkedIn+share.png"
-				alt="Via LinkedIn delen"
-			/>
-		</button>
-		<button class="mail-share" on:click={callEmailApi}>
-			<img
-				class="h-auto w-10"
-				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/E-mail+share.png"
-				alt="Via E-mail delen"
-			/>
-		</button>
-		<button data-tip="Deellink gekopieerd" class="copyurl-share cursor-pointer" on:click={copyLink}>
-			<img
-				class="h-auto w-10"
-				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/Link+share.png"
-				alt="Kopieer je deellink"
-			/>
-		</button>
+	<a class="fb-share" href={"https://www.facebook.com/sharer/sharer.php?u=" + link} target="_blank">
+		<img
+			class="h-auto w-10"
+			src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/Facebook+share.png"
+			alt="Via Facebook delen"
+		/>
+	</a>
+	<a class="li-share" href={"https://www.linkedin.com/shareArticle?mini=true&url=" + link + "&title=" + title} target="_blank">
+		<img
+			class="h-auto w-10"
+			src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/LinkedIn+share.png"
+			alt="Via LinkedIn delen"
+		/>
+	</a>
+	<a class="x-share" href={"https://twitter.com/intent/tweet?text=" + text + link} target="_blank">
+		<img
+			class="h-auto w-10"
+			src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/x-logo-white.png"
+			alt="Via E-mail delen"
+		/>
+	</a>
+	<a class="mail-share" href={"mailto:?subject=" + title + "&body=" + text + " " + link} target="_blank">
+		<img
+			class="h-auto w-10"
+			src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/E-mail+share.png"
+			alt="Via E-mail delen"
+		/>
+	</a>
+	<button data-tip="Deellink gekopieerd" class="copyurl-share cursor-pointer" on:click={copyLink}>
+		<img
+			class="h-auto w-10"
+			src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/Link+share.png"
+			alt="Kopieer je deellink"
+		/>
+	</button>
+	<a class="qr-share" href="">
+		<img
+			class="h-auto w-10"
+			src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/Hartstichting/QR.png"
+			alt="Via E-mail delen"
+		/>
+	</a>
 	</div>
 </div>
 
