@@ -7,9 +7,9 @@
 	}
 </script>
 
-<div class="social-slide">
-	<div class="slide-container relative flex justify-center items-center gap-2.5 z-10">
-		<a class="slide-button flex justify-center gap-2.5 p-5 bg-green-wa rounded-full text-white" href={"https://api.whatsapp.com/send?text=" + text + link}>
+<div class="social-share">
+	<div class="share-container relative flex justify-center items-center gap-2.5 z-10">
+		<a class="share-button flex justify-center gap-2.5 p-5 bg-green-wa rounded-full text-white" href={"https://api.whatsapp.com/send?text=" + text + link}>
 			<img
 				alt="WhatsApp logo"
 				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/KWF/Nederland+geeft+licht/Middel+1%404x.png"
