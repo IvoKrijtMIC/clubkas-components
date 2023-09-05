@@ -74,7 +74,7 @@
 	</div>
 	{#if showExtra}
 		<div
-			class="show-others relative flex justify-center gap-2 mb-2 mr-11 -mt-10 z-0 opacity-0 hide"
+			class="show-others relative flex justify-center gap-2 my-2 mr-11 z-0 opacity-100 hide"
 			id="show-others"
 		>
 			{#if showFb}
@@ -163,37 +163,11 @@
 		display: flex;
 	}
 	.show-others {
-		animation: show 1.5s ease-in-out 0s both;
+		transition: opacity 0.75s ease-in-out 0.75s, margin-top 0.75s ease-in-out 0s;
 	}
 	.show-others.hide {
-		animation: hide 1.5s ease-in-out 0s both;
-	}
-	@keyframes show {
-		0% {
-			opacity: 0;
-			margin-top: -2.5rem;
-		}
-		50% {
-			opacity: 0;
-			margin-top: 0.5rem;
-		}
-		100% {
-			opacity: 1;
-			margin-top: 0.5rem;
-		}
-	}
-	@keyframes hide {
-		0% {
-			opacity: 1;
-			margin-top: 0.5rem;
-		}
-		50% {
-			opacity: 0;
-			margin-top: 0.5rem;
-		}
-		100% {
-			opacity: 0;
-			margin-top: -2.5rem;
-		}
+		opacity: 0;
+		margin-top: -2.5rem;
+		transition: opacity 0.75s ease-in-out 0s, margin-top 0.75s ease-in-out 0.75s;
 	}
 </style>
