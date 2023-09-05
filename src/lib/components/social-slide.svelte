@@ -2,6 +2,14 @@
 	export let text: string;
 	export let link: string;
 	export let title: string;
+	export let showExtra = true;
+	export let showFb = true;
+	export let showLi = true;
+	export let showX = true;
+	export let showMail = true;
+	export let showCopy = true;
+	export let showQR = false;
+
 	function copyLink() {
 		navigator.clipboard.writeText(link);
 	}
@@ -14,7 +22,10 @@
 
 <div class="social-slide">
 	<div class="share-container relative flex justify-center items-center gap-2.5 z-10 bg-gray-100">
-		<a class="share-button flex justify-center gap-2.5 p-5 bg-green-wa rounded-full text-white" href={"https://api.whatsapp.com/send?text=" + text}>
+		<a
+			class="share-button flex justify-center gap-2.5 p-5 bg-green-wa rounded-full text-white"
+			href={'https://api.whatsapp.com/send?text=' + text}
+		>
 			<img
 				alt="WhatsApp logo"
 				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/KWF/Nederland+geeft+licht/Middel+1%404x.png"
@@ -22,24 +33,26 @@
 			/>
 			<span>Deel via WhatsApp</span>
 		</a>
-		<button
-			class="share-more show p-2 items-center h-fit bg-gray-400 rounded-full hover:cursor-pointer"
-			on:click={showOthers}
-			id="show-buttons"
-		>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				width="20"
-				height="20"
-				fill="#000000"
-				viewBox="0 0 256 256"
+		{#if showExtra}
+			<button
+				class="share-more show p-2 items-center h-fit bg-gray-400 rounded-full hover:cursor-pointer"
+				on:click={showOthers}
+				id="show-buttons"
 			>
-				<rect width="256" height="256" fill="none" />
-				<path
-					d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128Zm52-12a12,12,0,1,0,12,12A12,12,0,0,0,192,116ZM64,116a12,12,0,1,0,12,12A12,12,0,0,0,64,116Z"
-				/>
-			</svg>
-		</button>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					fill="#000000"
+					viewBox="0 0 256 256"
+				>
+					<rect width="256" height="256" fill="none" />
+					<path
+						d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128Zm52-12a12,12,0,1,0,12,12A12,12,0,0,0,192,116ZM64,116a12,12,0,1,0,12,12A12,12,0,0,0,64,116Z"
+					/>
+				</svg>
+			</button>
+		{/if}
 		<button
 			class="share-more p-2 items-center h-fit bg-gray-400 rounded-full hover:cursor-pointer"
 			on:click={showOthers}
@@ -59,53 +72,83 @@
 			</svg>
 		</button>
 	</div>
-	<div
-		class="show-others relative flex justify-center gap-2 mb-2 mr-11 -mt-10 z-0 opacity-0 hide"
-		id="show-others"
+	{#if showExtra}
+		<div
+			class="show-others relative flex justify-center gap-2 mb-2 mr-11 -mt-10 z-0 opacity-0 hide"
+			id="show-others"
 		>
-		<a class="fb-share" href={"https://www.facebook.com/sharer/sharer.php?u=" + link} target="_blank">
-			<img
-				class="h-auto w-10"
-				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/Facebook+share.png"
-				alt="Via Facebook delen"
-			/>
-		</a>
-		<a class="li-share" href={"https://www.linkedin.com/shareArticle?mini=true&url=" + link + "&title=" + title} target="_blank">
-			<img
-				class="h-auto w-10"
-				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/LinkedIn+share.png"
-				alt="Via LinkedIn delen"
-			/>
-		</a>
-		<a class="x-share" href={"https://twitter.com/intent/tweet?text=" + text + link} target="_blank">
-			<img
-				class="h-auto w-10"
-				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/x-logo-white.png"
-				alt="Via E-mail delen"
-			/>
-		</a>
-		<a class="mail-share" href={"mailto:?subject=" + title + "&body=" + text + " " + link} target="_blank">
-			<img
-				class="h-auto w-10"
-				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/E-mail+share.png"
-				alt="Via E-mail delen"
-			/>
-		</a>
-		<button data-tip="Deellink gekopieerd" class="copyurl-share cursor-pointer" on:click={copyLink}>
-			<img
-				class="h-auto w-10"
-				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/Link+share.png"
-				alt="Kopieer je deellink"
-			/>
-		</button>
-		<a class="qr-share" href="">
-			<img
-				class="h-auto w-10"
-				src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/Hartstichting/QR.png"
-				alt="Via E-mail delen"
-			/>
-		</a>
-	</div>
+			{#if showFb}
+				<a
+					class="fb-share block"
+					href={'https://www.facebook.com/sharer/sharer.php?u=' + link}
+					target="_blank"
+				>
+					<img
+						class="h-auto w-10"
+						src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/Facebook+share.png"
+						alt="Via Facebook delen"
+					/>
+				</a>
+			{/if}
+			{#if showLi}
+				<a
+					class="li-share"
+					href={'https://www.linkedin.com/shareArticle?mini=true&url=' + link + '&title=' + title}
+					target="_blank"
+				>
+					<img
+						class="h-auto w-10"
+						src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/LinkedIn+share.png"
+						alt="Via LinkedIn delen"
+					/>
+				</a>
+			{/if}
+			{#if showX}
+				<a
+					class="x-share"
+					href={'https://twitter.com/intent/tweet?text=' + text + link}
+					target="_blank"
+				>
+					<img
+						class="h-auto w-10"
+						src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/x-logo-white.png"
+						alt="Via E-mail delen"
+					/>
+				</a>
+			{/if}
+			{#if showMail}
+				<a
+					class="mail-share"
+					href={'mailto:?subject=' + title + '&body=' + text + ' ' + link}
+					target="_blank"
+				>
+					<img
+						class="h-auto w-10"
+						src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/E-mail+share.png"
+						alt="Via E-mail delen"
+					/>
+				</a>
+			{/if}
+			{#if showCopy}
+				<button data-tip="Deellink gekopieerd" class="copyurl-share cursor-pointer" on:click={copyLink}>
+					<img
+						class="h-auto w-10"
+						src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/Link+share.png"
+						alt="Kopieer je deellink"
+					/>
+				</button>
+			{/if}
+			{#if showQR}
+				<a class="qr-share" href="">
+					<img
+						class="h-auto w-10"
+						src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/Hartstichting/QR.png"
+						alt="Via E-mail delen"
+					/>
+				</a>
+			{/if}
+		</div>
+	{/if}
 </div>
 
 <style>
