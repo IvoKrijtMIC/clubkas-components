@@ -28,7 +28,7 @@
 	</div>
 	{#if showExtra}
 		<div
-			class="show-others relative flex justify-center gap-2 my-2 mr-11 z-0 opacity-100 hide"
+			class="show-others relative flex justify-center gap-2 my-2 z-0 opacity-100 hide"
 			id="show-others"
 		>
 			{#if showFb}

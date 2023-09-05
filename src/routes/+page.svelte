@@ -1,5 +1,5 @@
 <script>
-	import SocialSlide from "$lib/components/social-slide.svelte";
+	import SocialShare from "$lib/components/social-share.svelte";
 </script>
 
-<SocialSlide text="Ik collecteer omdat" link="https://dit.is/een/link" title="Dit is een titel" showQR={true} />
+<SocialShare text="Ik collecteer omdat" link="https://dit.is/een/link" title="Dit is een titel" showQR={true} />
