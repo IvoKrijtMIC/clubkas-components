@@ -130,7 +130,11 @@
 				</a>
 			{/if}
 			{#if showCopy}
-				<button data-tip="Deellink gekopieerd" class="copyurl-share cursor-pointer" on:click={copyLink}>
+				<button
+					data-tip="Deellink gekopieerd"
+					class="copyurl-share cursor-pointer"
+					on:click={copyLink}
+				>
 					<img
 						class="h-auto w-10"
 						src="https://mic-production-upload-image-share.s3.eu-central-1.amazonaws.com/M.I.C/Collecte+365+V2/Link+share.png"
