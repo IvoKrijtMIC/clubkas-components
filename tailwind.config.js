@@ -5,6 +5,10 @@ export default {
     extend: {
       colors: {
         'green-wa': '#25d366',
+        'pink-mic': '#f55',
+        'light-gray-mic': '#f5f5f5',
+        'dark-gray-mic': '#e5e5e5',
+        'blue-mic': '#1d3dff',
       },
     },
   },
