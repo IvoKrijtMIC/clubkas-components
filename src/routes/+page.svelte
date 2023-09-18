@@ -13,7 +13,7 @@
 			<label for="name" class="block text-sm font-light leading-6 text-gray-600">Verplicht</label>
 		</div>
 		<div class="input">
-			<input type="text" name="name" class="w-full py-1.5 px-2 rounded-md text-sm text-gray-900 ring-1 ring-inset ring-gray-300 accent-dark-pink-mic placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-dark-pink-mic" placeholder="" />
+			<input type="text" name="name" class="w-full py-1.5 px-2 rounded-md text-sm text-gray-900 ring-1 ring-inset ring-gray-300 accent-blue-400 placeholder:text-gray-400" placeholder="" />
 		</div>
 	</div>
 	<div class="form-item flex flex-col gap-2">
@@ -27,7 +27,7 @@
 			<input
 				type="tel"
 				name="tel"
-				class="w-full py-1.5 px-2 rounded-md text-sm text-gray-900 ring-1 ring-inset ring-gray-300 accent-dark-pink-mic placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-dark-pink-mic"
+				class="w-full py-1.5 px-2 rounded-md text-sm text-gray-900 ring-1 ring-inset ring-gray-300 accent-blue-400 placeholder:text-gray-400"
 				placeholder="0612345678"
 				required
 			/>
@@ -41,7 +41,7 @@
 			<input
 				type="email"
 				name="email"
-				class="w-full py-1.5 px-2 rounded-md text-sm text-gray-900 ring-1 ring-inset ring-gray-300 accent-dark-pink-mic placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-dark-pink-mic"
+				class="w-full py-1.5 px-2 rounded-md text-sm text-gray-900 ring-1 ring-inset ring-gray-300 accent-blue-400 placeholder:text-gray-400"
 				placeholder="mail@mail.com"
 			/>
 		</div>
